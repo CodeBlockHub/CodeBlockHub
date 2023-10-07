@@ -1,0 +1,13 @@
+<!-- mypasswords/templates/index.html -->
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="website" placeholder="Website">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Save</button>
+</form>
+
+{% for entry in passwords %}
+    <p>{{ entry.website }} | {{ entry.username }} | {{ entry.password }}</p>
+{% endfor %}
